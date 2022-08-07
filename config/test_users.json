@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "first_name": "Super",
+      "last_name": "User",
+      "email": "super@super.super",
+      "username": "super",
+      "password": "pass4321",
+      "date_of_birth": "2000-01-01",
+      "is_admin": true
+    },
+    {
+      "first_name": "Karan",
+      "last_name": "Tandon",
+      "email": "karan17058@iiitd.ac.in",
+      "username": "karan17058",
+      "password": "pass4321",
+      "date_of_birth": "2000-01-01",
+      "is_mentee": true
+    },
+    {
+      "first_name": "Reeshabh",
+      "last_name": "Ranjan",
+      "email": "reeshabh17086@iiitd.ac.in",
+      "username": "reeshabh17086",
+      "password": "pass4321",
+      "date_of_birth": "2000-02-01",
+      "is_mentee": true
+    },
+    {
+      "first_name": "Prince",
+      "last_name": "Sachdeva",
+      "email": "prince17080@iiitd.ac.in",
+      "username": "prince17080",
+      "password": "pass4321",
+      "date_of_birth": "2000-03-01",
+      "is_mentor": true
+    },
+    {
+      "first_name": "Shaurya",
+      "last_name": "Bagga",
+      "email": "shaurya17104@iiitd.ac.in",
+      "username": "shaurya17104",
+      "password": "pass4321",
+      "date_of_birth": "2000-04-01",
+      "is_mentor": true
+    },
+    {
+      "first_name": "Ananya",
+      "last_name": "Bhatia",
+      "email": "ananya17020@iiitd.ac.in",
+      "username": "ananya17020",
+      "password": "pass4321",
+      "date_of_birth": "2000-05-01",
+      "is_mentor": true
+    }
+  ]
+}
