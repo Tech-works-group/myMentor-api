@@ -34,7 +34,7 @@ CREATE TABLE `userinput` (
   PRIMARY KEY (`id`),
   KEY `comments_id_idx` (`comments_id`),
   CONSTRAINT `comments_id` FOREIGN KEY (`comments_id`) REFERENCES `comments` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

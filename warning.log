@@ -1,0 +1,11 @@
+08/Aug/2022 00:41:15 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /
+08/Aug/2022 00:41:15 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET / HTTP/1.1" 404 2270
+08/Aug/2022 00:41:15 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 00:41:15 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /favicon.ico HTTP/1.1" 404 2321
+08/Aug/2022 00:41:55 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /
+08/Aug/2022 00:41:55 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET / HTTP/1.1" 404 2270
+08/Aug/2022 00:41:55 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 00:42:02 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /users/
+08/Aug/2022 00:42:02 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /users/ HTTP/1.1" 404 2306
+08/Aug/2022 00:42:20 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /users/urls
+08/Aug/2022 00:42:20 WARNING location:[C:\Users\mshaf\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /users/urls HTTP/1.1" 404 2318

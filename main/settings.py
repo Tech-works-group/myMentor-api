@@ -21,13 +21,13 @@ DEBUG = env('DEBUG')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('RMP_SECRET_KEY')
 DB_URL = env('RMP_DB_URL')
-EMAIL_HOST = env('RMP_EMAIL_HOST')
-EMAIL_HOST_USER = env('RMP_EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('RMP_EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_FILE_PATH = BASE_DIR / 'test_email_logs'
+# EMAIL_HOST = env('RMP_EMAIL_HOST')
+# EMAIL_HOST_USER = env('RMP_EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = env('RMP_EMAIL_HOST_PASSWORD')
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_FILE_PATH = BASE_DIR / 'test_email_logs'
 
 ALLOWED_HOSTS = []  # TODO import from .env if DEBUG = True
 
@@ -110,14 +110,18 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mentordb',
+        'USER':'root',
+        'HOST':'127.0.0.1' ,
+        'PORT':'3306',
 
-DATABASES = {'default': dj_database_url.parse(DB_URL, conn_max_age=600)}
+    }
+}
+
+# DATABASES = {'default': dj_database_url.parse(DB_URL, conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

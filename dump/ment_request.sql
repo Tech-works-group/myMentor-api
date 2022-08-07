@@ -32,7 +32,7 @@ CREATE TABLE `request` (
   KEY `userinput` (`userinput_id`),
   CONSTRAINT `mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `mentee` (`id`),
   CONSTRAINT `userinput` FOREIGN KEY (`userinput_id`) REFERENCES `userinput` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
