@@ -3,7 +3,6 @@ from pathlib import Path
 
 import environ
 import os
-
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +29,7 @@ DB_URL = env('RMP_DB_URL')
 # EMAIL_FILE_PATH = BASE_DIR / 'test_email_logs'
 
 ALLOWED_HOSTS = []  # TODO import from .env if DEBUG = True
-
+DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
