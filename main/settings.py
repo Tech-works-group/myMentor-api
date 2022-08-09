@@ -62,9 +62,11 @@ INSTALLED_APPS = [
 
 # Cross Origin Resource Sharing (CORS)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "http://127.0.0.1:8080"
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True 
 
 CORS_ALLOW_HEADERS = [  # TODO blacklist some if needed
     'accept',
@@ -149,7 +151,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 SIMPLE_JWT = dict(
     SLIDING_TOKEN_LIFETIME=timedelta(days=100),  # TODO update/fix to a reasonable value
-    AUTH_TOKEN_CLASSES=('rest_framework_simplejwt.tokens.SlidingToken',),
+    AUTH_TOKEN_CLASSES = ('rest_framework_simplejwt.tokens.AccessToken',),
+    AUTH_HEADER_TYPES =  ('Bearer',),
 )
 
 # Internationalization
@@ -178,8 +181,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Django REST framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticated',
            'rest_framework.permissions.AllowAny',
+
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
