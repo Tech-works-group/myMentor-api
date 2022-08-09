@@ -16,3 +16,678 @@
 08/Aug/2022 15:28:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /
 08/Aug/2022 15:28:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET / HTTP/1.1" 404 2270
 08/Aug/2022 15:28:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 15:51:24 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 233, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'mentordb.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\sites.py", line 250, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\sites.py", line 221, in inner
+    if not self.has_permission(request):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\sites.py", line 195, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\functional.py", line 246, in inner
+    self._setup()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\functional.py", line 382, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\auth\middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\auth\__init__.py", line 177, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in __getitem__
+    return self._session[key]
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 238, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'mentordb.django_session' doesn't exist")
+08/Aug/2022 15:51:24 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /admin/ HTTP/1.1" 500 228584
+08/Aug/2022 18:17:42 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /
+08/Aug/2022 18:17:42 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET / HTTP/1.1" 404 2270
+08/Aug/2022 18:17:42 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:17:42 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /favicon.ico HTTP/1.1" 404 2321
+08/Aug/2022 18:17:50 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:17:50 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:19:53 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-9 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:21:17 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:21:17 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:21:17 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:21:20 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-14 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:21:20 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-14 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:24:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-21 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:24:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-21 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:24:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-21 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:24:34 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-23 (process_request_thread)] Not Found: /api/mentees
+08/Aug/2022 18:24:34 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-23 (process_request_thread)] "GET /api/mentees HTTP/1.1" 404 3317
+08/Aug/2022 18:24:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-24 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:24:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-24 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:25:56 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-24 (process_request_thread)] Unauthorized: /api/
+08/Aug/2022 18:25:56 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-24 (process_request_thread)] "GET /api/ HTTP/1.1" 401 5099
+08/Aug/2022 18:25:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-24 (process_request_thread)] Unauthorized: /api/
+08/Aug/2022 18:25:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-24 (process_request_thread)] "GET /api/ HTTP/1.1" 401 5099
+08/Aug/2022 18:25:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-24 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:28:36 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Internal Server Error: /api/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 331, in check_permissions
+    for permission in self.get_permissions():
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 278, in get_permissions
+    return [permission() for permission in self.permission_classes]
+TypeError: 'BasePermissionMetaclass' object is not iterable
+08/Aug/2022 18:28:36 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/ HTTP/1.1" 500 105845
+08/Aug/2022 18:28:36 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:28:46 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Internal Server Error: /api/mentee/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 331, in check_permissions
+    for permission in self.get_permissions():
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 278, in get_permissions
+    return [permission() for permission in self.permission_classes]
+TypeError: 'BasePermissionMetaclass' object is not iterable
+08/Aug/2022 18:28:46 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-3 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 500 106312
+08/Aug/2022 18:28:46 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:29:24 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:29:24 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:29:24 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:29:50 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Internal Server Error: /api/mentee/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 74, in wrap_attributeerrors
+    yield
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+AttributeError: 'IsAdminUser' object has no attribute 'authenticate'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 226, in user
+    with wrap_attributeerrors():
+  File "C:\Users\beso0\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 74, in wrap_attributeerrors
+    yield
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+rest_framework.request.WrappedAttributeError: 'IsAdminUser' object has no attribute 'authenticate'
+08/Aug/2022 18:29:50 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 500 138991
+08/Aug/2022 18:29:50 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:33:24 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Forbidden: /api/mentee/
+08/Aug/2022 18:33:24 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 403 5112
+08/Aug/2022 18:33:24 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:33:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/
+08/Aug/2022 18:33:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 403 5112
+08/Aug/2022 18:33:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:34:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:34:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:34:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:34:04 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:34:04 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:34:04 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:36:46 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /api/example/
+08/Aug/2022 18:36:46 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/example/ HTTP/1.1" 404 3320
+08/Aug/2022 18:37:14 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:37:14 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:43:32 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /api/mentee/
+08/Aug/2022 18:43:32 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 404 2321
+08/Aug/2022 18:43:32 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:43:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /api/mentee/
+08/Aug/2022 18:43:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 404 2321
+08/Aug/2022 18:43:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:43:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:43:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:43:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:44:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:44:33 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-7 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:44:53 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:47:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:47:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:47:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:47:51 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Unauthorized: /api/mentor/
+08/Aug/2022 18:47:51 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-3 (process_request_thread)] "GET /api/mentor/ HTTP/1.1" 401 5238
+08/Aug/2022 18:47:55 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:47:55 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-3 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:47:55 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:48:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:48:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:48:11 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:48:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 18:48:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 18:48:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:49:00 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Forbidden: /api/mentee/
+08/Aug/2022 18:49:00 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 403 5112
+08/Aug/2022 18:49:00 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:49:01 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/
+08/Aug/2022 18:49:01 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 403 5112
+08/Aug/2022 18:49:01 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:49:05 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Forbidden: /api/mentee/
+08/Aug/2022 18:49:05 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-3 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 403 5112
+08/Aug/2022 18:49:17 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:49:21 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 18:49:21 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5287
+08/Aug/2022 18:49:28 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/department/
+08/Aug/2022 18:49:28 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/department/ HTTP/1.1" 403 5377
+08/Aug/2022 18:49:31 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/designation/
+08/Aug/2022 18:49:31 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/designation/ HTTP/1.1" 403 5389
+08/Aug/2022 18:50:34 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Forbidden: /api/mentee/education/
+08/Aug/2022 18:50:34 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/education/ HTTP/1.1" 403 5365
+08/Aug/2022 18:50:34 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 18:50:59 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:32:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 20:32:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "OPTIONS /api/mentee/ HTTP/1.1" 401 5242
+08/Aug/2022 20:32:29 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 20:32:29 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 20:32:29 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:32:32 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 20:32:32 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-3 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 20:37:22 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-8 (process_request_thread)] Bad Request: /api/mentee/
+08/Aug/2022 20:37:22 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-8 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 400 5201
+08/Aug/2022 20:37:40 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-8 (process_request_thread)] Bad Request: /api/mentee/
+08/Aug/2022 20:37:40 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-8 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 400 5201
+08/Aug/2022 20:48:58 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Bad Request: /api/mentee/
+08/Aug/2022 20:48:58 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 400 5201
+08/Aug/2022 20:48:58 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:49:00 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /api/mentee/
+08/Aug/2022 20:49:00 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 400 5201
+08/Aug/2022 20:49:21 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:49:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-4 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:49:40 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-11 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:49:56 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-17 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:05 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-18 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:09 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-10 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:15 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-20 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:26 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-23 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:36 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-30 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:50:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-30 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5550
+08/Aug/2022 20:50:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-30 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:52 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-31 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:50:56 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-32 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:51:06 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-34 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:51:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-35 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:51:22 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-36 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:51:33 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-37 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:51:33 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-37 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5550
+08/Aug/2022 20:51:41 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-37 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:51:41 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-37 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5550
+08/Aug/2022 20:51:41 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-37 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:51:50 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-40 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:52:02 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-43 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:52:05 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-45 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:52:09 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-19 (process_request_thread)] Internal Server Error: /admin/mentee/mentee/3/change/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 994, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\template\base.py", line 973, in render_value_in_context
+    value = str(value)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\html.py", line 376, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\boundfield.py", line 34, in __str__
+    return self.as_widget()
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\boundfield.py", line 93, in as_widget
+    return widget.render(
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\widgets.py", line 246, in render
+    context = self.get_context(name, value, attrs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\widgets.py", line 435, in get_context
+    context = super().get_context(name, value, attrs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\widgets.py", line 298, in get_context
+    context = super().get_context(name, value, attrs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\widgets.py", line 238, in get_context
+    'value': self.format_value(value),
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\widgets.py", line 431, in format_value
+    if self.is_initial(value):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\forms\widgets.py", line 425, in is_initial
+    return bool(value and getattr(value, 'url', False))
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\cloudinary\__init__.py", line 305, in url
+    return self.build_url(**self.url_options)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\cloudinary\__init__.py", line 315, in build_url
+    return self.__build_url(**options)[0]
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\cloudinary\__init__.py", line 312, in __build_url
+    return utils.cloudinary_url(public_id, **combined_options)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\cloudinary\utils.py", line 736, in cloudinary_url
+    raise ValueError("Must supply cloud_name in tag or in configuration")
+ValueError: Must supply cloud_name in tag or in configuration
+08/Aug/2022 20:52:10 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-19 (process_request_thread)] "GET /admin/mentee/mentee/3/change/ HTTP/1.1" 500 582128
+08/Aug/2022 20:52:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-19 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:54:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:54:07 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-4 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:54:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:54:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-5 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5550
+08/Aug/2022 20:54:14 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:54:16 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-6 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:54:16 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-6 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5550
+08/Aug/2022 20:54:19 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-6 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:54:19 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-6 (process_request_thread)] "GET /api/mentee/mentee/?format=json HTTP/1.1" 403 63
+08/Aug/2022 20:54:22 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-6 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:54:25 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-7 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:54:25 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-7 (process_request_thread)] "GET /api/mentee/mentee/?format=api HTTP/1.1" 403 5605
+08/Aug/2022 20:54:25 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-7 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:55:44 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-8 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:56:44 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Internal Server Error: /api/mentee/mentee/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\rest_framework\views.py", line 331, in check_permissions
+    for permission in self.get_permissions():
+  File "C:\Users\beso0\workspace\myMentor-api\main\mixins.py", line 4, in get_permissions
+    return [permission() for permission in self.permission_action_classes[self.action]]
+AttributeError: 'MenteeViewSet' object has no attribute 'permission_action_classes'
+08/Aug/2022 20:56:44 ERROR location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 500 106752
+08/Aug/2022 20:56:44 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:57:31 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:57:31 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5550
+08/Aug/2022 20:57:31 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:57:37 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:57:39 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:57:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-6 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:58:00 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-10 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:58:19 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 20:58:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-14 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 20:58:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-14 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5550
+08/Aug/2022 20:58:25 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-14 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 21:01:22 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Bad Request: /api/mentee/mentee/
+08/Aug/2022 21:01:22 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 400 5326
+08/Aug/2022 21:01:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Bad Request: /api/mentee/department/
+08/Aug/2022 21:01:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/department/ HTTP/1.1" 400 5416
+08/Aug/2022 21:01:35 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 21:01:35 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 5238
+08/Aug/2022 21:01:39 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Bad Request: /api/mentee/
+08/Aug/2022 21:01:39 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 400 5201
+08/Aug/2022 21:01:44 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Bad Request: /api/mentee/
+08/Aug/2022 21:01:44 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 400 5201
+08/Aug/2022 21:01:48 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Bad Request: /api/mentee/
+08/Aug/2022 21:01:48 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 400 5201
+08/Aug/2022 21:01:51 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Bad Request: /api/
+08/Aug/2022 21:01:51 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/ HTTP/1.1" 400 5062
+08/Aug/2022 21:02:42 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Unauthorized: /api/
+08/Aug/2022 21:02:42 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/ HTTP/1.1" 401 5099
+08/Aug/2022 21:04:31 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Bad Request: /api/mentee/education/
+08/Aug/2022 21:04:31 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentee/education/ HTTP/1.1" 400 5947
+08/Aug/2022 21:42:51 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 22:39:53 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-7 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 22:39:53 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-7 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 58
+08/Aug/2022 22:40:21 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-8 (process_request_thread)] Unauthorized: /api/
+08/Aug/2022 22:40:21 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-8 (process_request_thread)] "GET /api/ HTTP/1.1" 401 58
+08/Aug/2022 22:40:47 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-9 (process_request_thread)] Unauthorized: /api/mentor/
+08/Aug/2022 22:40:47 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-9 (process_request_thread)] "GET /api/mentor/ HTTP/1.1" 401 58
+08/Aug/2022 22:41:07 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-10 (process_request_thread)] Not Found: /favicon.ico
+08/Aug/2022 22:41:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-17 (process_request_thread)] Unauthorized: /api/mentor/
+08/Aug/2022 22:41:38 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-17 (process_request_thread)] "GET /api/mentor/ HTTP/1.1" 401 58
+08/Aug/2022 22:41:52 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-18 (process_request_thread)] Unauthorized: /api/mentee/
+08/Aug/2022 22:41:52 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-18 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 401 58
+08/Aug/2022 22:41:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-19 (process_request_thread)] Unauthorized: /api/mentee/mentee/
+08/Aug/2022 22:41:57 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-19 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 401 58
+08/Aug/2022 22:42:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/mentee/mentee/
+08/Aug/2022 22:42:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 401 58
+08/Aug/2022 22:42:47 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 22:42:47 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 58
+08/Aug/2022 22:42:56 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Forbidden: /api/mentee/
+08/Aug/2022 22:42:56 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-3 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 403 58
+08/Aug/2022 22:43:01 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-4 (process_request_thread)] Forbidden: /api/mentee/
+08/Aug/2022 22:43:01 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-4 (process_request_thread)] "GET /api/mentee/ HTTP/1.1" 403 58
+08/Aug/2022 22:43:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 22:43:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-5 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 58
+08/Aug/2022 22:43:34 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+08/Aug/2022 22:43:34 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 63
+09/Aug/2022 13:20:59 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /api/token/mentee/
+09/Aug/2022 13:20:59 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/token/mentee/ HTTP/1.1" 404 3731
+09/Aug/2022 13:21:19 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /api/token_obtain_pair/mentee/
+09/Aug/2022 13:21:19 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/token_obtain_pair/mentee/ HTTP/1.1" 404 3767
+09/Aug/2022 13:21:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Method Not Allowed: /api/token/
+09/Aug/2022 13:21:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884
+09/Aug/2022 13:24:41 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Method Not Allowed: /api/token/
+09/Aug/2022 13:24:41 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884
+09/Aug/2022 13:26:07 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden (Permission denied): /admin/token_blacklist/outstandingtoken/1/change/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 1565, in _changeform_view
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+09/Aug/2022 13:26:07 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "POST /admin/token_blacklist/outstandingtoken/1/change/ HTTP/1.1" 403 135
+09/Aug/2022 13:26:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden (Permission denied): /admin/token_blacklist/outstandingtoken/1/change/
+Traceback (most recent call last):
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\contrib\admin\options.py", line 1565, in _changeform_view
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+09/Aug/2022 13:26:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "POST /admin/token_blacklist/outstandingtoken/1/change/ HTTP/1.1" 403 135
+09/Aug/2022 13:26:29 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 13:26:29 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 13:26:43 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 13:26:43 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 13:28:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-9 (process_request_thread)] Unauthorized: /api/mentee/mentee/
+09/Aug/2022 13:28:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-9 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 401 58
+09/Aug/2022 13:28:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Method Not Allowed: /api/token/
+09/Aug/2022 13:28:45 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884
+09/Aug/2022 13:29:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Method Not Allowed: /api/token/
+09/Aug/2022 13:29:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884
+09/Aug/2022 13:29:35 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Method Not Allowed: /api/token/
+09/Aug/2022 13:29:35 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884
+09/Aug/2022 13:29:39 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Method Not Allowed: /api/token/
+09/Aug/2022 13:29:39 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884
+09/Aug/2022 13:31:11 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden (CSRF token missing or incorrect.): /admin/users/customuser/7/change/
+09/Aug/2022 13:31:11 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "POST /admin/users/customuser/7/change/ HTTP/1.1" 403 2519
+09/Aug/2022 13:31:16 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden (CSRF token missing or incorrect.): /admin/users/customuser/7/change/
+09/Aug/2022 13:31:16 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "POST /admin/users/customuser/7/change/ HTTP/1.1" 403 2519
+09/Aug/2022 14:02:05 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-6 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:02:09 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-7 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:02:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-8 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:02:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-8 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:02:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-8 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:02:14 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-9 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:02:14 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-9 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:02:16 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-9 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:03:20 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:05:04 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:05:06 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:05:06 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:05:06 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:09:02 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:09:02 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:09:02 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:09:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:09:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:09:07 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:09:07 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:09:11 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:09:11 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:09:11 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:09:41 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:10:08 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-7 (process_request_thread)] Unauthorized: /api/mentor/mentor/
+09/Aug/2022 14:10:08 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-7 (process_request_thread)] "GET /api/mentor/mentor/ HTTP/1.1" 401 58
+09/Aug/2022 14:11:12 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-12 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:11:47 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-13 (process_request_thread)] Unauthorized: /api/mentor/mentor/
+09/Aug/2022 14:11:47 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-13 (process_request_thread)] "GET /api/mentor/mentor/ HTTP/1.1" 401 58
+09/Aug/2022 14:24:46 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-14 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:25:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-15 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:25:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-15 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:34:11 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-17 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:34:14 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-19 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:34:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-22 (process_request_thread)] Unauthorized: /api/mentor/mentor/
+09/Aug/2022 14:34:27 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-22 (process_request_thread)] "GET /api/mentor/mentor/ HTTP/1.1" 401 58
+09/Aug/2022 14:41:50 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-23 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:41:53 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-24 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:42:03 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-25 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:42:09 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-26 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:42:09 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-26 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5641
+09/Aug/2022 14:42:09 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-26 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:43:07 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-29 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:43:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-31 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:43:29 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-35 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:43:47 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-38 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:43:52 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-41 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:44:02 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-44 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:44:10 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-47 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:44:18 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-30 (process_request_thread)] Unauthorized: /api/mentee/mentee/
+09/Aug/2022 14:44:18 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-30 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 401 5499
+09/Aug/2022 14:44:18 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-30 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:44:20 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-50 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:44:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-51 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:44:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-51 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5639
+09/Aug/2022 14:44:28 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-51 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:44:28 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-51 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5639
+09/Aug/2022 14:44:28 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-51 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:44:33 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-52 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 14:44:37 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-53 (process_request_thread)] Forbidden: /api/mentee/mentee/
+09/Aug/2022 14:44:37 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-53 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5639
+09/Aug/2022 14:50:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-54 (process_request_thread)] Method Not Allowed: /api/token/
+09/Aug/2022 14:50:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-54 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884

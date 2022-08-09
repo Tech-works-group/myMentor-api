@@ -4,10 +4,14 @@ from pathlib import Path
 import environ
 import os
 import dj_database_url
-
+import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+cloudinary.config( 
+  cloud_name = "dvsrs40t2", 
+  api_key = "131926963145476", 
+  api_secret = "Bk-gDJLbH6DXq-THZUZ1-Bk7cfM" 
+)
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -46,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'django_filters',
+    'drf_yasg',
 
     # My apps
     'api',
@@ -143,7 +148,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'users.CustomUser'
 
 SIMPLE_JWT = dict(
-    SLIDING_TOKEN_LIFETIME=timedelta(days=1),  # TODO update/fix to a reasonable value
+    SLIDING_TOKEN_LIFETIME=timedelta(days=100),  # TODO update/fix to a reasonable value
     AUTH_TOKEN_CLASSES=('rest_framework_simplejwt.tokens.SlidingToken',),
 )
 
@@ -173,11 +178,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Django REST framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAuthenticated',
+           'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'users.authentication.CustomDRFSessionAuthentication',
+        
     ],
 }
 

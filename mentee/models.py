@@ -2,12 +2,12 @@ import uuid
 
 from django.db import models
 from django.db.models import F
-
+from cloudinary.models import CloudinaryField
+from django.template.defaultfilters import slugify
 
 class Mentee(models.Model):
     uid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     user = models.OneToOneField('users.CustomUser', on_delete=models.CASCADE)
-
     about_self = models.TextField(max_length=512, blank=True)  # TODO add field for CV/resume
     profile_completed = models.BooleanField(default=False)
     designation = models.ForeignKey('mentee.MenteeDesignation', on_delete=models.RESTRICT,
@@ -20,8 +20,9 @@ class Mentee(models.Model):
                                    related_name='mentees_with_discipline',
                                    null=True)
     specialization = models.TextField(max_length=256, blank=True)
+    slug = models.SlugField(max_length=255,default=uuid.uuid4)
     # Additional fields: Education, Research
-
+    profileImage = CloudinaryField('Image', overwrite=True, format='jpg', null=True)
     rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True
                                  # validators=[validators.MinValueValidator(0.0), validators.MaxValueValidator(5.0)]
                                  )  # TODO Check if validators can be added here or only in DRF Serializers
@@ -30,6 +31,10 @@ class Mentee(models.Model):
 
     def __str__(self):
         return '{}(email={})'.format(self.__class__.__name__, self.user.email)
+    def save(self, *args, **kwargs):
+        to_assign=slugify(self.uid)
+        super().save( *args, **kwargs)
+        
 
 
 class MenteeDesignation(models.Model):
