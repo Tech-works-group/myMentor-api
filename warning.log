@@ -691,3 +691,21 @@ django.core.exceptions.PermissionDenied
 09/Aug/2022 14:44:37 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-53 (process_request_thread)] "GET /api/mentee/mentee/ HTTP/1.1" 403 5639
 09/Aug/2022 14:50:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-54 (process_request_thread)] Method Not Allowed: /api/token/
 09/Aug/2022 14:50:13 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-54 (process_request_thread)] "GET /api/token/ HTTP/1.1" 405 7884
+09/Aug/2022 15:29:51 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:29:51 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:29:52 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:29:52 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:29:57 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:29:57 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:30:27 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:30:27 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:31:24 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:31:24 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:31:25 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:31:25 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:31:30 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:31:30 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:31:34 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Bad Request: /
+09/Aug/2022 15:31:34 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET / HTTP/1.1" 400 60
+09/Aug/2022 15:31:43 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
+09/Aug/2022 15:31:43 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /favicon.ico HTTP/1.1" 404 2717
