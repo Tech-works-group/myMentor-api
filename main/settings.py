@@ -5,7 +5,7 @@ import environ
 import os
 import dj_database_url
 import cloudinary
-import django_heroku
+# import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 cloudinary.config( 
@@ -23,7 +23,7 @@ environ.Env.read_env(str(BASE_DIR / '.env'))
 DEBUG = env('DEBUG')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ('RMP_SECRET_KEY')
+SECRET_KEY = env('RMP_SECRET_KEY')
 DB_URL = env('RMP_DB_URL')
 # EMAIL_HOST = env('RMP_EMAIL_HOST')
 # EMAIL_HOST_USER = env('RMP_EMAIL_HOST_USER')
@@ -86,7 +86,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
-     "whitenoise.middleware.WhiteNoiseMiddleware",
+    #  "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -235,5 +235,5 @@ LOGGING = {
     },
 }
 
-TEST_RUNNER = 'main.test_config.MyTestSuiteRunner'
-django_heroku.settings(locals())
+# TEST_RUNNER = 'main.test_config.MyTestSuiteRunner'
+# django_heroku.settings(locals())

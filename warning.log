@@ -3277,3 +3277,5 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 09/Aug/2022 15:31:43 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Not Found: /favicon.ico
 09/Aug/2022 15:31:43 WARNING location:[C:\Users\mmm\Desktop\myMentor-api\env\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /favicon.ico HTTP/1.1" 404 2717
 >>>>>>> 1cc0926c83726cdd2f0741a2ab639971b1590d3b
+10/Aug/2022 12:57:37 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/
+10/Aug/2022 12:57:37 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/ HTTP/1.1" 401 58
