@@ -1,0 +1,4 @@
+
+release:python manage.py make migrations
+release:python manage.py make migrate
+web:gunicorn main.wsgi
