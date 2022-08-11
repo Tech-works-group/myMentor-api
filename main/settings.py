@@ -5,7 +5,7 @@ import environ
 import os
 import dj_database_url
 import cloudinary
-import django_heroku
+# import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 cloudinary.config( 
@@ -84,7 +84,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
-     "whitenoise.middleware.WhiteNoiseMiddleware",
+    #  "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -111,7 +111,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'main.wsgi.application'
+# WSGI_APPLICATION = 'main.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -231,5 +231,5 @@ LOGGING = {
     },
 }
 
-TEST_RUNNER = 'main.test_config.MyTestSuiteRunner'
-django_heroku.settings(locals())
+# TEST_RUNNER = 'main.test_config.MyTestSuiteRunner'
+# django_heroku.settings(locals())
