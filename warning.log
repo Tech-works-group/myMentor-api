@@ -5087,3 +5087,9 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 11/Aug/2022 12:32:48 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentorship/ HTTP/1.1" 401 58
 11/Aug/2022 12:32:53 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-1 (process_request_thread)] Unauthorized: /api/mentorship/
 11/Aug/2022 12:32:53 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-1 (process_request_thread)] "GET /api/mentorship/ HTTP/1.1" 401 58
+11/Aug/2022 13:23:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-2 (process_request_thread)] Unauthorized: /api/
+11/Aug/2022 13:23:23 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-2 (process_request_thread)] "GET /api/ HTTP/1.1" 401 58
+11/Aug/2022 13:23:30 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-3 (process_request_thread)] Unauthorized: /api/
+11/Aug/2022 13:23:30 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-3 (process_request_thread)] "GET /api/ HTTP/1.1" 401 58
+11/Aug/2022 14:24:55 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\utils\log.py:224] thread:[Thread-5 (process_request_thread)] Not Found: /favicon.ico
+11/Aug/2022 14:24:55 WARNING location:[C:\Users\beso0\workspace\myMentor-api\venv\lib\site-packages\django\core\servers\basehttp.py:161] thread:[Thread-5 (process_request_thread)] "GET /favicon.ico HTTP/1.1" 404 2712
