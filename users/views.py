@@ -4,21 +4,21 @@ from rest_framework import permissions, status
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework import generics
 from rest_framework_simplejwt.views import TokenObtainSlidingView
-
 from main.mixins import ViewSetPermissionByMethodMixin
 from users.serializers import CustomUserSerializer, CustomUserUpdateSerializer, CustomUserPasswordUpdateSerializer, \
-    CustomTokenObtainSlidingSerializer, CustomUserForgotPasswordTokenSerializer, CustomUserForgotPasswordSerializer
+    CustomTokenObtainSlidingSerializer, CustomUserForgotPasswordTokenSerializer, CustomUserForgotPasswordSerializer,RegisterUserSerializer
 from . import permissions as user_permissions
 from .methods import send_email_async, invalidate_old_authentication_token
 from .models import ForgotPasswordToken, CustomUser
 
 
 class CustomUserViewSet(ViewSetPermissionByMethodMixin, viewsets.ModelViewSet):
-    permission_classes = (user_permissions.CanAccessCustomUser,)
+    permission_classes=[permissions.AllowAny]
     permission_action_classes = dict(
         create=(permissions.AllowAny,),
-        list=(~permissions.AllowAny,),
+        # list=(~permissions.AllowAny,),
         generate_forgot_password_token=(permissions.AllowAny,),
         forgot_password=(permissions.AllowAny,),
     )
@@ -91,3 +91,7 @@ class CustomUserViewSet(ViewSetPermissionByMethodMixin, viewsets.ModelViewSet):
 
 class CustomTokenObtainSlidingView(TokenObtainSlidingView):
     serializer_class = CustomTokenObtainSlidingSerializer
+
+class RegisterUserAPIView(generics.CreateAPIView):
+    permission_classes=[permissions.AllowAny]
+    serializer_class = CustomUserSerializer

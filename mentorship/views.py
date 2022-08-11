@@ -18,8 +18,8 @@ from . import permissions as mentorship_permissions
 class MentorshipViewSet(ViewSetPermissionByMethodMixin, viewsets.ModelViewSet):
     permission_action_classes = dict(
         create=(~rest_permissions.AllowAny,),
-        retrieve=(mentorship_permissions.CanAccessMentorship,),
-        list=(mentorship_permissions.CanAccessMentorshipApp,),  # get_queryset also modified accordingly
+        retrieve=(~rest_permissions.AllowAny,),
+        list=(~rest_permissions.AllowAny,),  # get_queryset also modified accordingly
         update=(~rest_permissions.AllowAny,),  # Can only be terminated/finished using the corresponding methods
         partial_update=(~rest_permissions.AllowAny,),
         destroy=(~rest_permissions.AllowAny,),  # For record-keeping
@@ -71,8 +71,8 @@ class MentorshipRequestViewSet(ViewSetPermissionByMethodMixin, viewsets.ModelVie
     permission_action_classes = dict(
         create=(mentorship_permissions.CanAccessMentorshipApp, mentee_permissions.IsMentee,),
         # TODO check if , is enforcing all the permissions
-        retrieve=(mentorship_permissions.CanAccessMentorshipRequest,),
-        list=(mentorship_permissions.CanAccessMentorshipApp,),  # get_queryset also modified accordingly
+        retrieve=(~rest_permissions.AllowAny),
+        list=(~rest_permissions.AllowAny),  # get_queryset also modified accordingly
         update=(~rest_permissions.AllowAny,),  # Can only be accepted/rejected using the respond method
         partial_update=(~rest_permissions.AllowAny,),
         destroy=(mentorship_permissions.CanAccessMentorshipRequest, mentee_permissions.IsMentee,),

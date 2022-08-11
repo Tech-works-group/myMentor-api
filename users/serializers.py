@@ -10,6 +10,25 @@ from rest_framework_simplejwt.serializers import TokenObtainSlidingSerializer
 from users.methods import verify_login, invalidate_old_authentication_token
 from users.models import CustomUser, ForgotPasswordToken
 
+class RegisterUserSerializer(serializers.HyperlinkedModelSerializer):
+    def create(self,validated_data):
+        user = self.Meta.model().create_user(
+                email=validate_data['email'],
+                username=validate_data['username'],
+                password=validate_data['password']
+        )
+        # user = user.objects.create_user(
+        #     email=validate_data['email'],
+        #     username=validate_data['username'],
+        #     password=validate_data['password']
+        # )
+        return user
+    class Meta:
+        # model = get_user_model()
+        model = CustomUser
+        fields = ('uid', 'first_name', 'last_name', 'email', 'username', 'password', 'date_of_birth',
+                  'is_mentor', 'is_mentee')  # this restricts API users from creating an admin
+        read_only_fields = ('uid',)
 
 class CustomUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(

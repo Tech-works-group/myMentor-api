@@ -26,4 +26,3 @@ urlpatterns = [
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('', schema_view.without_ui(cache_timeout=0), name='schema-json'),   
 ]
-
