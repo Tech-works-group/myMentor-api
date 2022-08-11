@@ -5,7 +5,7 @@ import environ
 import os
 import dj_database_url
 import cloudinary
-# import django_heroku
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 cloudinary.config( 
@@ -63,11 +63,9 @@ INSTALLED_APPS = [
 
 # Cross Origin Resource Sharing (CORS)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000"
+    "http://localhost:8080",
+    "http://127.0.0.1:8080"
 ]
-
-CORS_ALLOW_ALL_ORIGINS = True 
 
 CORS_ALLOW_HEADERS = [  # TODO blacklist some if needed
     'accept',
@@ -86,7 +84,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
-    #  "whitenoise.middleware.WhiteNoiseMiddleware",
+     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -153,8 +151,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 SIMPLE_JWT = dict(
     SLIDING_TOKEN_LIFETIME=timedelta(days=100),  # TODO update/fix to a reasonable value
-    AUTH_TOKEN_CLASSES = ('rest_framework_simplejwt.tokens.AccessToken',),
-    AUTH_HEADER_TYPES =  ('Bearer',),
+    AUTH_TOKEN_CLASSES=('rest_framework_simplejwt.tokens.SlidingToken',),
 )
 
 # Internationalization
@@ -234,5 +231,5 @@ LOGGING = {
     },
 }
 
-# TEST_RUNNER = 'main.test_config.MyTestSuiteRunner'
-# django_heroku.settings(locals())
+TEST_RUNNER = 'main.test_config.MyTestSuiteRunner'
+django_heroku.settings(locals())
