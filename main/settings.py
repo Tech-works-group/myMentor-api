@@ -34,7 +34,7 @@ DB_URL = env('RMP_DB_URL')
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_FILE_PATH = BASE_DIR / 'test_email_logs'
 
-ALLOWED_HOSTS = ['*']  # TODO import from .env if DEBUG = True
+ALLOWED_HOSTS = []  # TODO import from .env if DEBUG = True
 DEBUG = True
 # Application definition
 
@@ -65,8 +65,8 @@ INSTALLED_APPS = [
 
 # Cross Origin Resource Sharing (CORS)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "http://127.0.0.1:8080"
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
 ]
 
 CORS_ALLOW_HEADERS = [  # TODO blacklist some if needed
@@ -150,12 +150,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
-
+CORS_ALLOW_ALL_ORIGINS = True 
 SIMPLE_JWT = dict(
     SLIDING_TOKEN_LIFETIME=timedelta(days=100),  # TODO update/fix to a reasonable value
-    AUTH_TOKEN_CLASSES=('rest_framework_simplejwt.tokens.SlidingToken',),
+    AUTH_TOKEN_CLASSES = ('rest_framework_simplejwt.tokens.AccessToken',),
+    AUTH_HEADER_TYPES =  ('Bearer',),
 )
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
